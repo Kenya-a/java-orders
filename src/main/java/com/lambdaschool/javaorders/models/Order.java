@@ -19,6 +19,7 @@ public class Order
     @JoinColumn(name = "custcode", nullable = false)
     private Customer customer;
 
+
     //constructor
     public Order()
     {
