@@ -1,15 +1,17 @@
 package com.lambdaschool.javaorders.models;
 
-import org.springframework.stereotype.Component;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "agents")
 public class Agent
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long agentcode;
+
     @Column(unique = true, nullable = false)
     private String agentname;
 
@@ -17,4 +19,8 @@ public class Agent
     private double commission;
     private String phone;
     private String country;
+
+    //one to many
+    @OneToMany
+    private List<Customer> customers = new ArrayList<>();
 }
